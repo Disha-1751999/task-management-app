@@ -40,7 +40,7 @@ app.listen(process.env.PORT,function(){
 })
 
 
-export default app;
+// export default app;
 
 
 
