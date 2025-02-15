@@ -35,12 +35,12 @@ app.get('*',function (req,res) {
     res.sendFile(path.resolve(__dirname,'../client','dist','index.html'))
 })
 
-app.listen(process.env.PORT,function(){
-    console.log("Server started on port "+process.env.PORT)
-})
+// app.listen(process.env.PORT,function(){
+//     console.log("Server started on port "+process.env.PORT)
+// })
 
 
-// export default app;
+export default app;
 
 
 
