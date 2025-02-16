@@ -1,6 +1,6 @@
 import { TokenEncode } from '../utilities/tokenUtility.js';
 import UserModel from '../models/UserModel.js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import EmailSend from '../utilities/emailUtility.js';
 
 export const Register=async(req,res)=>{
