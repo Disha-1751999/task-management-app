@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use('/api/send-otp', (req, res, next) => {
-    req.setTimeout(120000); // Set timeout for this route to 2 minutes
+    req.setTimeout(240000); // Set timeout for this route to 2 minutes
     next();
   });
 
