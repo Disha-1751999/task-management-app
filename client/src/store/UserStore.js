@@ -23,6 +23,7 @@ const UserStore=create((set)=>({
     UserLoginRequest:async(reqBody)=>{
         try {
             let res=await axios.post(`${BASE_URL}/api/login`,reqBody,{withCredentials : true});
+            console.log(res)
             Cookies.set('token',res.data.token);
             return res.data;
         }catch (error) {
