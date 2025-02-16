@@ -15,9 +15,17 @@ dotenv.config();
 
 const app=express();
 
-app.use(cors({ origin: "https://task-management-app-client-lake.vercel.app", credentials: true, methods: "GET,POST,PUT,DELETE", allowedHeaders: ['Content-Type', 'Authorization'],}));
+app.use(cors({ origin: "https://task-management-app-client-lake.vercel.app",
+               credentials: true, 
+               methods: "GET,POST,PUT,DELETE",
+                allowedHeaders: ['Content-Type', 'Authorization'],}));
 app.use(cookieParser());
 app.use(express.json());
+
+app.use('/api/send-otp', (req, res, next) => {
+    req.setTimeout(120000); // Set timeout for this route to 2 minutes
+    next();
+  });
 
 app.use('/api',router);
 
