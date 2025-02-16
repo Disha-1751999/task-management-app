@@ -8,8 +8,7 @@ import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
 function Cards() {
-  const { TaskList, TaskListRequest, RemoveTaskRequest, UpdateTaskRequest } =
-    TaskStore();
+  const { TaskList, TaskListRequest, RemoveTaskRequest, UpdateTaskRequest } = TaskStore();
   const [taskToEdit, setTaskToEdit] = useState(null); // Task being edited
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
@@ -32,7 +31,7 @@ function Cards() {
     setDesc(task.desc);
     setId(task._id)
     setDueDate(moment(task.due_date).format("YYYY-MM-DD")); // Format to input-compatible date
-    if(task.status='Pending'){
+    if(task.status=='Pending'){
       setStatus(false);
     }else{
       setStatus(true);
@@ -44,22 +43,32 @@ function Cards() {
   const updateTask = async (id) => {
     
     try {
-      console.log(status)
-      if(status){
-        setUpdatedStatus('Completed');
-      }else{
-        setUpdatedStatus('Pending');
-      }
-      console.log()
+      // if(status){
+      //    setUpdatedStatus('Completed');
+      // }else{
+      //    setUpdatedStatus('Pending');
+      // }
 
-      const updatedTask = {
+      let updatedTask ;
+     if(status){
+       updatedTask = {
         ...taskToEdit,
         title,
         desc,
         due_date: dueDate,
-        status:updatedStatus,
+        status:'Completed',
       };
-      console.log(updatedStatus)
+     }else{
+      updatedTask = {
+        ...taskToEdit,
+        title,
+        desc,
+        due_date: dueDate,
+        status:'Pending',
+      };
+     }
+      
+      
       const res = await UpdateTaskRequest(updatedTask,id);
 
       if (res) {
