@@ -14,7 +14,7 @@ const UserStore=create((set)=>({
     UserRegisterRequest:async(reqBody)=>{
         try {
             let res=await axios.post(`${BASE_URL}/api/register`,reqBody,{withCredentials : true});
-            Cookies.set('token',res.data.token);
+            Cookies.set('token',res.data.data.token);
             return res.data;
         }catch (error) {
             console.log((error));
@@ -24,7 +24,7 @@ const UserStore=create((set)=>({
         try {
             let res=await axios.post(`${BASE_URL}/api/login`,reqBody,{withCredentials : true});
             console.log(res)
-            Cookies.set('token',res.data.token);
+            Cookies.set('token',res.data.data.token);
             return res.data;
         }catch (error) {
             console.log((error));
