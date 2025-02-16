@@ -7,7 +7,9 @@ export default defineConfig({
   server:{
     proxy:{
       '/api/':{
-        target:"https://task-management-app-server-henna.vercel.app"
+        target:"https://task-management-app-server-henna.vercel.app",
+                  changeOrigin: true,
+                  secure: true,
       }
     }
   }
