@@ -30,7 +30,7 @@ export const Register=async(req,res)=>{
             sameSite:'None',
             
         })
-        return res.status(200).json({status:'success',message: 'Register Successful',data:user})
+        return res.status(200).json({status:'success',message: 'Register Successful',data:user,token:token})
     }
    }catch(error){
        console.log(error)
@@ -61,7 +61,7 @@ export const Register=async(req,res)=>{
              secure:true,
              sameSite:'None'
          })
-         return res.status(200).json({status:'success',message: 'login Successful',data:user})
+         return res.status(200).json({status:'success',message: 'login Successful',data:user,token:token})
      }
      else{
         return res.status(200).json({status:'fail',message: 'Wrong Password'})
