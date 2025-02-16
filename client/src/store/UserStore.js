@@ -14,6 +14,7 @@ const UserStore=create((set)=>({
     UserRegisterRequest:async(reqBody)=>{
         try {
             let res=await axios.post(`${BASE_URL}/api/register`,reqBody,{withCredentials : true});
+            Cookies.set('token',res.data.token);
             return res.data;
         }catch (error) {
             console.log((error));
@@ -22,6 +23,7 @@ const UserStore=create((set)=>({
     UserLoginRequest:async(reqBody)=>{
         try {
             let res=await axios.post(`${BASE_URL}/api/login`,reqBody,{withCredentials : true});
+            Cookies.set('token',res.data.token);
             return res.data;
         }catch (error) {
             console.log((error));
@@ -30,6 +32,7 @@ const UserStore=create((set)=>({
     UserLogoutRequest:async()=>{
         try {
             let res=await axios.get(`${BASE_URL}/api/logout`,{withCredentials : true});
+            Cookies.remove('token')
             return res.data['status'] === "success";
         }catch (error) {
             console.log((error));
