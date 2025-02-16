@@ -27,6 +27,9 @@ mongoose.connect(process.env.DATABASE,{autoIndex:true}).then(()=>{
 }).catch(()=>{
     console.log("MongoDB disconnected");
 })
+app.get('/',function (req,res) {
+    res.json('welcome')
+})
 
 app.use(express.static('client/dist'));
 
