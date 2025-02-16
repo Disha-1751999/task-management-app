@@ -40,11 +40,11 @@ function Profile() {
  
   return (
     <div className=' h-[100vh] flex items-center justify-center flex-col gap-10'>
-      <div className='flex flex-col gap-2 w-[80vw] md:w-max'>
+      <div className='flex flex-col gap-2 w-[80vw] md:w-max mt-10 md:mt-0'>
       <button>
           <ImMenu onClick={toggleOpen} className="text-4xl text-white cursor-pointer hover:text-gray-100 transition-all duration-300 md:hidden" />
       </button>
-         <div className='grid grid-cols-2'>
+         <div className='grid grid-cols-1 md:grid-cols-2 mt-16 md:mt-5 gap-12 md:gap-0  items-center justify-center'>
               <div className='h-full w-32 md:w-48 md:h-48 relative flex items-center justify-center'> 
               <div className='h-32 w-32  rounded-full overflow-hidden cursor-pointer bg-[#4cc9f02a] text-[#4cc9f0] border-[2px] border-[#4cc9f0bb]'>
                 {
