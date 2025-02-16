@@ -15,7 +15,10 @@ dotenv.config();
 
 const app=express();
 
-app.use(cors({ origin: 'https://task-management-app-client-lake.vercel.app',credentials: true}));
+app.use(cors({ origin: 'https://task-management-app-client-lake.vercel.app',
+ credentials: true,
+ methods: "GET,POST,PUT,DELETE", 
+    allowedHeaders: "Content-Type,Authorization"}));
 app.use(cookieParser());
 app.use(express.json());
 
