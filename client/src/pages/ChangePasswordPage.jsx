@@ -12,14 +12,18 @@ function ChangePasswordPage() {
   const {SendOtpRequest}=UserStore()
   const {setUserEmail}=EmailStore()
   const navigate=useNavigate()
-
+  const [loading, setLoading] = useState(false);
     const handleSubmit=async()=>{
+
       if(IsEmail(email)){
+        setLoading(true)
         setUserEmail(email)
        let res= await SendOtpRequest(email)       
        if(res){
+        setLoading(false)
          navigate('/otp')
        }else{
+        setLoading(false)
         toast.error("Error")
        }
       }
@@ -59,11 +63,12 @@ function ChangePasswordPage() {
 
           <div className="w-full flex justify-center mb-5">
             <button
+           disabled={loading}
               onClick={handleSubmit}
               type="submit"
               className="text-white  bg-slate-800 hover:bg-slate-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm mx-auto px-5 py-2.5 text-center "
             >
-              Submit
+             {loading?(<span>Loading <span class="loading loading-dots loading-sm"></span></span>):( <span> Submit</span>)}
             </button>
           </div>
 
