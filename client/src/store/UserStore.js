@@ -14,7 +14,7 @@ const UserStore=create((set)=>({
             let res=await axios.post(`/api/register`,reqBody,{withCredentials : true});
             return res.data;
         }catch (error) {
-            console.console.log((error));
+            console.log((error));
         }
     },
     UserLoginRequest:async(reqBody)=>{
@@ -22,7 +22,7 @@ const UserStore=create((set)=>({
             let res=await axios.post(`/api/login`,reqBody,{withCredentials : true});
             return res.data;
         }catch (error) {
-            console.console.log((error));
+            console.log((error));
         }
     },
     UserLogoutRequest:async()=>{
@@ -30,7 +30,7 @@ const UserStore=create((set)=>({
             let res=await axios.get(`/api/logout`,{withCredentials : true});
             return res.data['status'] === "success";
         }catch (error) {
-            console.console.log((error));
+            console.log((error));
         }
     },
     UserInfo:{},
@@ -54,7 +54,7 @@ const UserStore=create((set)=>({
                 return true
             };
         }catch (error) {
-            console.console.log((error));
+            console.log((error));
         }
     },
 
@@ -65,7 +65,7 @@ const UserStore=create((set)=>({
               return true
             };
         }catch (error) {
-           console.console.log((error));
+           console.log((error));
            
         }
     },
